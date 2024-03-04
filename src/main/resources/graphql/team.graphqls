@@ -1,0 +1,11 @@
+type Team {
+    id: ID!
+    name: String!
+    leagueLevel: String!
+    color: String!
+    players: [Player]
+}
+
+type Query {
+    Teams: [Team]!
+}
