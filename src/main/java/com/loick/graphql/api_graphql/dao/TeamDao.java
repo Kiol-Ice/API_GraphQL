@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import com.loick.graphql.api_graphql.entite.Team;
 
 public class TeamDao {
-private final List<Team> teams;
+    private final List<Team> teams;
 
     public TeamDao(List<Team> teams) {
         this.teams = teams;

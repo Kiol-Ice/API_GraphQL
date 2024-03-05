@@ -9,13 +9,4 @@ public class ApiGraphqlApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApiGraphqlApplication.class, args);
 	}
-
-
-	// type Player {
-	// 	id: ID!
-	// 	firstName: String!
-	// 	lastName: String!
-	// 	position: String!
-	// 	team: Team!
-	// }
 }

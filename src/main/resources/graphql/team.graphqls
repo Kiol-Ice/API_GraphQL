@@ -3,9 +3,5 @@ type Team {
     name: String!
     leagueLevel: String!
     color: String!
-    players: [Player]
-}
-
-type Query {
-    Teams: [Team]!
+    players: [Player!]
 }

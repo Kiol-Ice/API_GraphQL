@@ -1,0 +1,4 @@
+type Query {
+    Teams: [Team]!
+    Players: [Player]!
+}

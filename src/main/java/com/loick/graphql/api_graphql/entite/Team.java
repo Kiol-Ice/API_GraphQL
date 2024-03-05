@@ -7,8 +7,9 @@ public class Team {
     private String name;
     private String leagueLevel;
     private String color;
-    private List<String> idPlayers;
+    private List<String> playerId;
 
+    
     public String getId() {
         return id;
     }
@@ -37,10 +38,10 @@ public class Team {
         this.color = color;
     }
     
-    public List<String> getIdPlayers() {
-        return idPlayers;
+    public List<String> getPlayerId() {
+        return playerId;
     }
-    public void setIdPlayers(List<String> idPlayers) {
-        this.idPlayers = idPlayers;
+    public void setPlayerId(List<String> playerId) {
+        this.playerId = playerId;
     }
 }

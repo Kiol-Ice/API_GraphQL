@@ -6,19 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
-import com.loick.graphql.api_graphql.dao.TeamDao;
-import com.loick.graphql.api_graphql.entite.Team;
+import com.loick.graphql.api_graphql.dao.PlayerDao;
+import com.loick.graphql.api_graphql.entite.Player;
 
 @Controller
-public class TeamController {
+public class PlayerController {
     @Autowired
-	private TeamDao teamDao;
+	private PlayerDao playerDao;
 
-    public TeamController() {
+    public PlayerController() {
     }
 
     @QueryMapping
-    public List<Team> Teams() {
-        return this.teamDao.getTeams();
+    public List<Player> Players() {
+    	
+        return this.playerDao.getPlayers();
     }
+
 }
