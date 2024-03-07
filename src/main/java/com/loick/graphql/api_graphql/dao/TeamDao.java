@@ -12,12 +12,12 @@ public class TeamDao {
         this.teams = teams;
     }
 
-    public List<Team> getTeams() {
+    public List<Team> getTeams(int count, int offset) {
     	
-    	return this.teams.stream().collect(Collectors.toList());
+    	return this.teams.stream().skip(offset).limit(count).collect(Collectors.toList());
     }
 
-    public Team getById(String id) {
+    public Team getTeam(String id) {
         return this.teams.stream().filter(team -> team.getId().equals(id)).findFirst().orElse(null);
     }
 }

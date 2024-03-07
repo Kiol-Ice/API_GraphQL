@@ -1,4 +1,6 @@
 type Query {
-    Teams: [Team]!
-    Players: [Player]!
+    Team(id: ID): Team!
+    Teams(count: Int = 100, offset: Int = 0): [Team]!
+    Player(id: ID): Player!
+    Players(count: Int = 100, offset: Int = 0): [Player]!
 }

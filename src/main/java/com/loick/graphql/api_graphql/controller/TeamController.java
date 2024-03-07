@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
@@ -25,8 +26,13 @@ public class TeamController {
     }
 
     @QueryMapping
-    public List<Team> Teams() {
-        return this.teamDao.getTeams();
+    public Team Team(@Argument String id) {
+        return this.teamDao.getTeam(id);
+    }
+
+    @QueryMapping
+    public List<Team> Teams(@Argument int count, @Argument int offset) {
+        return this.teamDao.getTeams(count, offset);
     }
 
     @SchemaMapping
@@ -35,7 +41,7 @@ public class TeamController {
 
         if (team.getPlayerId() != null) {
             for (String playerId : team.getPlayerId()) {
-                players.add(playerDao.getById(playerId));
+                players.add(playerDao.getPlayer(playerId));
             }
         }
         

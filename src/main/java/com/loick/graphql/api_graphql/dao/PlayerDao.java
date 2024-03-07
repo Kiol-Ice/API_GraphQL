@@ -12,11 +12,11 @@ public class PlayerDao {
         this.players = players;
     }
 
-    public List<Player> getPlayers() {
-    	return this.players.stream().collect(Collectors.toList());
+    public List<Player> getPlayers(int count, int offset) {
+    	return this.players.stream().skip(offset).limit(count).collect(Collectors.toList());
     }
 
-    public Player getById(String id) {
+    public Player getPlayer(String id) {
         return this.players.stream().filter(player -> player.getId().equals(id)).findFirst().orElse(null);
     }
 }
