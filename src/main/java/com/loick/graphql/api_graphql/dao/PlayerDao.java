@@ -13,7 +13,10 @@ public class PlayerDao {
     }
 
     public List<Player> getPlayers() {
-    	
     	return this.players.stream().collect(Collectors.toList());
+    }
+
+    public Player getById(String id) {
+        return this.players.stream().filter(player -> player.getId().equals(id)).findFirst().orElse(null);
     }
 }

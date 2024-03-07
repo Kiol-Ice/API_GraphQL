@@ -3,6 +3,5 @@ type Player {
     firstName: String!
     lastName: String!
     position: String!
-    teamId: String
     team: Team
 }

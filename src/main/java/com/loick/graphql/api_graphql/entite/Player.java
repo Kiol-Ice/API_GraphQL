@@ -5,10 +5,7 @@ public class Player {
     private String firstName;
     private String lastName;
     private String position;
-    private String teamId;
-    private Team team;
-
-    
+    private String teamId;    
     
     public String getId() {
         return id;
@@ -43,12 +40,5 @@ public class Player {
     }
     public void setTeamId(String teamId) {
         this.teamId = teamId;
-    }
-    
-    public Team getTeam() {
-        return team;
-    }
-    public void setTeam(Team team) {
-        this.team = team;
     }
 }

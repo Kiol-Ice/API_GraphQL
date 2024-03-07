@@ -16,4 +16,8 @@ public class TeamDao {
     	
     	return this.teams.stream().collect(Collectors.toList());
     }
+
+    public Team getById(String id) {
+        return this.teams.stream().filter(team -> team.getId().equals(id)).findFirst().orElse(null);
+    }
 }

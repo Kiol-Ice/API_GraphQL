@@ -24,6 +24,7 @@ public class Graphqlconfiguration {
             team.setName(teamName[playerId]);
             team.setLeagueLevel(teamLevel[playerId]);
             team.setColor(teamColor[playerId]);
+            team.setPlayerId(null);
             teams.add(team);
         }
 
@@ -49,8 +50,6 @@ public class Graphqlconfiguration {
             player.setLastName(playerLastName[playerId]);
             player.setPosition(playerPosition[playerId]);
             player.setTeamId(playerTeam[playerId]);
-            int teamId = Integer.parseInt(playerTeam[playerId]);
-            player.setTeam(initTeams().get(teamId));
             players.add(player);
         }
         return new PlayerDao(players);
