@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
@@ -26,12 +27,12 @@ public class TeamController {
     }
 
     @QueryMapping
-    public Team Team(@Argument String id) {
+    public Team team(@Argument String id) {
         return this.teamDao.getTeam(id);
     }
 
     @QueryMapping
-    public List<Team> Teams(@Argument int count, @Argument int offset) {
+    public List<Team> teams(@Argument int count, @Argument int offset) {
         return this.teamDao.getTeams(count, offset);
     }
 
@@ -46,5 +47,28 @@ public class TeamController {
         }
         
         return players;
+    }
+
+    @MutationMapping
+    public Team createTeam(@Argument String name, @Argument String leagueLevel, @Argument String color, @Argument List<String> playerId) {
+    	
+        String newId = Integer.toString(teamDao.useNextId());
+
+        // create team
+    	Team team = new Team();
+    	team.setId(newId);
+    	team.setName(name);
+    	team.setLeagueLevel(leagueLevel);
+    	team.setColor(color);
+        team.setPlayerId(playerId);
+
+        // set team of player if exist
+        for (String pId : playerId) {
+            if (playerDao.playerExist(pId)) {
+                playerDao.setTeam(pId, newId);
+            }
+        }
+        
+        return teamDao.createTeam(team);
     }
 }

@@ -5,10 +5,11 @@ import java.util.stream.Collectors;
 
 import com.loick.graphql.api_graphql.entite.Player;
 
-public class PlayerDao {
+public class PlayerDao extends BaseDao {
     private final List<Player> players;
 
-    public PlayerDao(List<Player> players) {
+    public PlayerDao(List<Player> players, int nextId) {
+        super(nextId);
         this.players = players;
     }
 
@@ -18,5 +19,21 @@ public class PlayerDao {
 
     public Player getPlayer(String id) {
         return this.players.stream().filter(player -> player.getId().equals(id)).findFirst().orElse(null);
+    }
+
+    public Player createPlayer(Player player) {
+		this.players.add(player);
+		
+		return player;
+	}
+
+    public Player setTeam(String playerId, String teamId) {
+        Player player = getPlayer(playerId);
+        player.setTeamId(teamId);
+        return player;
+    }
+
+    public Boolean playerExist(String id) {
+        return getPlayer(id) != null;
     }
 }

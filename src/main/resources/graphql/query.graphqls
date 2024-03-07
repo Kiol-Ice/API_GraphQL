@@ -1,6 +1,11 @@
 type Query {
-    Team(id: ID): Team!
-    Teams(count: Int = 100, offset: Int = 0): [Team]!
-    Player(id: ID): Player!
-    Players(count: Int = 100, offset: Int = 0): [Player]!
+    team(id: ID): Team!
+    teams(count: Int = 100, offset: Int = 0): [Team]!
+    player(id: ID): Player!
+    players(count: Int = 100, offset: Int = 0): [Player]!
+}
+
+type Mutation {
+    createTeam(name: String!, leagueLevel: String!, color: String!, playerId: [String]) : Team!
+    createPlayer(firstName: String!, lastName: String!, position: String!, teamId: String) : Player!
 }

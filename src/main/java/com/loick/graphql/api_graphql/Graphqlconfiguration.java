@@ -12,6 +12,8 @@ import com.loick.graphql.api_graphql.dao.TeamDao;
 import com.loick.graphql.api_graphql.entite.Player;
 import com.loick.graphql.api_graphql.entite.Team;
 
+import static graphql.com.google.common.collect.Iterables.size;
+
 @Configuration
 public class Graphqlconfiguration {
     @Bean
@@ -31,12 +33,13 @@ public class Graphqlconfiguration {
             team.setPlayerId(players.stream().filter(player -> player.getTeamId().equals(team.getId())).map(player->player.getId()).collect(Collectors.toList()));
             teams.add(team);
         }
-        return new TeamDao(teams);
+        return new TeamDao(teams, size(teams));
     }	
 
     @Bean
     public PlayerDao playerDao() {
-        return new PlayerDao(initPlayer());
+        List<Player> players = initPlayer();
+        return new PlayerDao(players, size(players));
     }
 
     private List<Player> initPlayer() {
