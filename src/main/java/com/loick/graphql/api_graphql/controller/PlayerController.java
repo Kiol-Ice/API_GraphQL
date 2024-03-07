@@ -63,4 +63,9 @@ public class PlayerController {
         return playerDao.createPlayer(player);
     }
 
+    @MutationMapping
+    public Player deletePlayer(@Argument String id) {
+        teamDao.removePlayer(id);
+        return playerDao.deletePlayer(id);
+    }
 }

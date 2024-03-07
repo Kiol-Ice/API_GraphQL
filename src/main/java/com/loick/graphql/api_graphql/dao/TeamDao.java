@@ -37,11 +37,20 @@ public class TeamDao extends BaseDao {
         return team;
     }
 
-    // remove player from old team
-            // Team oldTeam = teams.stream().filter(t -> t.getPlayerId().contains(playerId)).findFirst().orElse(null);
-            // if (oldTeam != null) {
-            //     oldTeam.getPlayerId().remove(playerId);
-            // }
+    public Team deleteTeam(String id) {
+        Team teamToDelete = getTeam(id);
+        this.teams.remove(teamToDelete);
+        return null;
+    }
+
+    // remove deleted player from team
+    public void removePlayer(String playerId) {
+        Team oldTeam = teams.stream().filter(t -> t.getPlayerId().contains(playerId)).findFirst().orElse(null);
+        if (oldTeam != null) {
+            oldTeam.getPlayerId().remove(playerId);
+        }
+    }
+            
 
     public Boolean teamExist(String id) {
         return getTeam(id) != null;

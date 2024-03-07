@@ -71,4 +71,10 @@ public class TeamController {
         
         return teamDao.createTeam(team);
     }
+
+    @MutationMapping
+    public Team deleteTeam(@Argument String id) {
+        playerDao.unsetTeam(id);
+        return teamDao.deleteTeam(id);
+    }
 }

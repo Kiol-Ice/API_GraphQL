@@ -33,6 +33,16 @@ public class PlayerDao extends BaseDao {
         return player;
     }
 
+    public void unsetTeam(String teamId) {
+        this.players.stream().filter(player -> player.getTeamId().equals(teamId)).findFirst().orElse(null).setTeamId(null);
+    }
+
+    public Player deletePlayer(String id) {
+        Player playerToDelete = getPlayer(id);
+        this.players.remove(playerToDelete);
+        return null;
+    }
+
     public Boolean playerExist(String id) {
         return getPlayer(id) != null;
     }
