@@ -43,7 +43,7 @@ public class PlayerController {
     }
 
     @MutationMapping
-    public Player createPlayer(@Argument String id, @Argument String firstName, @Argument String lastName, @Argument String position, @Argument String teamId) {
+    public Player createPlayer(@Argument String firstName, @Argument String lastName, @Argument String position, @Argument String teamId) {
     	
         String newId = Integer.toString(playerDao.useNextId());
 
@@ -66,6 +66,35 @@ public class PlayerController {
     @MutationMapping
     public Player deletePlayer(@Argument String id) {
         teamDao.removePlayer(id);
+        return playerDao.deletePlayer(id);
+    }
+
+    @MutationMapping
+    public Player updatePlayer(@Argument String id, @Argument String firstName, @Argument String lastName, @Argument String position, @Argument String teamId) {
+        Player updatedPlayer;
+        if(playerDao.playerExist(id)) {
+            updatedPlayer = playerDao.getPlayer(id);
+
+            if (firstName != null)
+                updatedPlayer.setFirstName(firstName);
+
+            if (lastName != null)
+                updatedPlayer.setLastName(lastName);
+
+            if (position != null)
+                updatedPlayer.setPosition(position);
+
+            if (teamId != null) {
+                updatedPlayer.setTeamId(teamId);
+                teamDao.removePlayer(id);
+                teamDao.addPlayer(teamId, id);
+            }
+                
+
+            return playerDao.updatePlayer(id, updatedPlayer);
+        }
+        
+
         return playerDao.deletePlayer(id);
     }
 }

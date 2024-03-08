@@ -77,4 +77,33 @@ public class TeamController {
         playerDao.unsetTeam(id);
         return teamDao.deleteTeam(id);
     }
+
+    @MutationMapping
+    public Team updateTeam(@Argument String id, @Argument String name, @Argument String leagueLevel, @Argument String color, @Argument List<String> playerId) {
+        Team updatedTeam;
+        if (teamDao.teamExist(id)) {
+            updatedTeam = teamDao.getTeam(id);
+            
+            if (name != null)
+                updatedTeam.setName(name);
+
+            if (leagueLevel != null)
+                updatedTeam.setLeagueLevel(leagueLevel);
+            
+            if (color != null) 
+                updatedTeam.setColor(color);
+
+            if (playerId != null) {
+                playerDao.unsetTeam(id);
+                updatedTeam.setPlayerId(playerId); 
+                for (String pId : playerId) {
+                    playerDao.setTeam(pId, id);
+                }
+            }
+
+            return teamDao.updateTeam(id, updatedTeam);
+        }
+        
+        return null;
+    }
 }

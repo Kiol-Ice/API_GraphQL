@@ -43,6 +43,12 @@ public class TeamDao extends BaseDao {
         return null;
     }
 
+    public Team updateTeam(String id, Team team) {
+        int index = this.teams.indexOf(getTeam(id));
+        this.teams.set(index, team);
+        return team;
+    }
+
     // remove deleted player from team
     public void removePlayer(String playerId) {
         Team oldTeam = teams.stream().filter(t -> t.getPlayerId().contains(playerId)).findFirst().orElse(null);
@@ -50,7 +56,6 @@ public class TeamDao extends BaseDao {
             oldTeam.getPlayerId().remove(playerId);
         }
     }
-            
 
     public Boolean teamExist(String id) {
         return getTeam(id) != null;
