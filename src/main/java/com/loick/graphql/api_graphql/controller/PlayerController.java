@@ -90,7 +90,6 @@ public class PlayerController {
                 teamDao.addPlayer(teamId, id);
             }
                 
-
             return playerDao.updatePlayer(id, updatedPlayer);
         }
         

@@ -1,0 +1,26 @@
+{
+    "data": {
+      "players": [
+        {
+          "id": "2",
+          "firstName": "Étienne",
+          "lastName": "Green"
+        },
+        {
+          "id": "3",
+          "firstName": "Mathieu",
+          "lastName": "Cafaro"
+        },
+        {
+          "id": "4",
+          "firstName": "Robert",
+          "lastName": "Lewandowski"
+        },
+        {
+          "id": "5",
+          "firstName": "Sergi",
+          "lastName": "Roberto"
+        }
+      ]
+    }
+  }
