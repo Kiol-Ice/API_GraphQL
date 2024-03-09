@@ -1,0 +1,12 @@
+{
+  "data": {
+    "player": {
+      "firstName": "Achraf",
+      "lastName": "Hakimi",
+      "position": "defender",
+      "team": {
+        "name": "Paris SG"
+      }
+    }
+  }
+}

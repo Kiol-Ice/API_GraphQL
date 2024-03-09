@@ -1,0 +1,13 @@
+{
+    "data": {
+      "updatePlayer": {
+        "id": "0",
+        "firstName": "Christiano",
+        "lastName": "Ronaldo",
+        "position": "Forward",
+        "team": {
+          "name": "Real Madrid"
+        }
+      }
+    }
+  }

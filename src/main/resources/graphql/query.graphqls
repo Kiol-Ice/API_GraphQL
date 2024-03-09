@@ -11,5 +11,5 @@ type Mutation {
     deleteTeam(id: String!) : Team
     deletePlayer(id: String!) : Player
     updateTeam(id: String!, name: String, leagueLevel: String, color: String, playerId: [String]): Team!
-    updatePlayer(id: String!, firstName: String!, lastName: String!, position: String!, teamId: String): Player!
+    updatePlayer(id: String!, firstName: String, lastName: String, position: String, teamId: String): Player!
 }

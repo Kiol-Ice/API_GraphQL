@@ -1,0 +1,12 @@
+{
+  "data": {
+    "createPlayer": {
+      "id": "10",
+      "firstName": "Loick",
+      "lastName": "Ramadier",
+      "team": {
+        "name": "AS Saint Etienne"
+      }
+    }
+  }
+}
