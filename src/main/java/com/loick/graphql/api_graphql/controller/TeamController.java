@@ -67,6 +67,7 @@ public class TeamController {
             if (playerDao.playerExist(pId)) {
                 playerDao.setTeam(pId, newId);
             }
+            teamDao.removePlayer(pId);
         }
         
         return teamDao.createTeam(team);
