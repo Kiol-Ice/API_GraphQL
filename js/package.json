@@ -4,7 +4,7 @@
   "description": "GraphQL api client",
   "main": "index.js",
   "scripts": {
-    "test": "node ./index.js"
+    "test-api": "node ./index.js"
   },
   "author": "Loick RAMADIER",
   "license": "ISC",
