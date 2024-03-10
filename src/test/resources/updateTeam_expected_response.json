@@ -1,0 +1,20 @@
+{
+    "data": {
+      "updateTeam": {
+        "id": "9",
+        "name": "fc girondins de bordeaux",
+        "color": "bleu fonce",
+        "leagueLevel": "regionnal",
+        "players": [
+          {
+            "firstName": "Erling",
+            "lastName": "Haaland"
+          },
+          {
+            "firstName": "Kevin",
+            "lastName": "De Bruyne"
+          }
+        ]
+      }
+    }
+  }

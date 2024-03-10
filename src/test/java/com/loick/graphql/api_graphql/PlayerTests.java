@@ -1,9 +1,6 @@
 package com.loick.graphql.api_graphql;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +34,7 @@ class PlayerTests {
 			.variable("offset", 2)
 			.execute()
 			.path("$")
-			.matchesJson(expected("getPlayers"));
+			.matchesJson(BaseTests.expected("getPlayers"));
 	}
 
 	@Test
@@ -60,7 +57,7 @@ class PlayerTests {
 			.variable("id", "1")
 			.execute()
 			.path("$")
-			.matchesJson(expected("getPlayer"));
+			.matchesJson(BaseTests.expected("getPlayer"));
 	}
 
 	@Test
@@ -95,7 +92,7 @@ class PlayerTests {
 			.variable("teamId", "1")
 			.execute()
 			.path("$")
-			.matchesJson(expected("createPlayer"));
+			.matchesJson(BaseTests.expected("createPlayer"));
 	}
 
 	@Test
@@ -134,7 +131,7 @@ class PlayerTests {
 		  	.variable("teamId", "5")
           	.execute()
           	.path("$")
-          	.matchesJson(expected("updatePlayer"));
+          	.matchesJson(BaseTests.expected("updatePlayer"));
 	}
 
 	@Test
@@ -155,11 +152,6 @@ class PlayerTests {
 			.variable("id", "9")
           	.execute()
           	.path("$")
-          	.matchesJson(expected("deletePlayer"));
+          	.matchesJson(BaseTests.expected("deletePlayer"));
 	}
-
-	public static String expected(String fileName) throws IOException {
-        Path path = Paths.get("src/test/resources/" + fileName + "_expected_response.json");
-        return new String(Files.readAllBytes(path));
-    }
 }

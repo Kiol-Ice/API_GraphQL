@@ -1,0 +1,26 @@
+{
+    "data": {
+      "teams": [
+        {
+          "id": "2",
+          "name": "Olympique Lyonnais",
+          "color": "Blue"
+        },
+        {
+          "id": "3",
+          "name": "Olympique Marseillais",
+          "color": "Light Blue and white"
+        },
+        {
+          "id": "4",
+          "name": "FC Barcelone",
+          "color": "Blue and Red"
+        },
+        {
+          "id": "5",
+          "name": "Real Madrid",
+          "color": "White and gold"
+        }
+      ]
+    }
+  }

@@ -1,0 +1,20 @@
+{
+    "data": {
+      "team": {
+        "id": "1",
+        "name": "AS Saint Etienne",
+        "color": "Green and White",
+        "leagueLevel": "nationnal",
+        "players": [
+          {
+            "firstName": "Étienne",
+            "lastName": "Green"
+          },
+          {
+            "firstName": "Mathieu",
+            "lastName": "Cafaro"
+          }
+        ]
+      }
+    }
+  }

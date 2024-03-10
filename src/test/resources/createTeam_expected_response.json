@@ -1,0 +1,20 @@
+{
+    "data": {
+      "createTeam": {
+        "id": "10",
+        "name": "FooTSE",
+        "color": "green and red",
+        "leagueLevel": "regionnal",
+        "players": [
+          {
+            "firstName": "Kylian",
+            "lastName": "Mbappé"
+          },
+          {
+            "firstName": "Achraf",
+            "lastName": "Hakimi"
+          }
+        ]
+      }
+    }
+  }
